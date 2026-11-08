@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Load Classifier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="top">
+  <h1>Load classifier</h1>
+  <p>Enter electrical measurements to identify the load's behaviour and circuit type. Leave any field empty and the training-set median is used.</p>
+</header>
+
+<main>
+  <section class="panel" id="predict">
+    <div class="panel-head">
+      <h2>Measurements</h2>
+      <div class="actions">
+        <button type="button" class="ghost" id="btn-example">Load example</button>
+        <button type="button" class="ghost" id="btn-clear">Clear all</button>
+      </div>
+    </div>
+    <form id="form" autocomplete="off">
+      <div id="fields"></div>
+      <div class="submit-row">
+        <button type="submit" class="primary" id="btn-predict">Classify load</button>
+        <span id="form-msg" role="status"></span>
+      </div>
+    </form>
+  </section>
+
+  <section class="panel" id="result-panel" hidden>
+    <h2>Prediction</h2>
+    <div id="result"></div>
+  </section>
+
+  <section class="panel" id="perf">
+    <div class="panel-head">
+      <h2>Model performance</h2>
+      <div class="tabs" role="tablist">
+        <button role="tab" class="tab active" data-task="behaviour">Behaviour</button>
+        <button role="tab" class="tab" data-task="circuit">Circuit</button>
+      </div>
+    </div>
+    <div id="metrics"><p class="muted">Loading metrics…</p></div>
+  </section>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
